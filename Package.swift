@@ -2,18 +2,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "nanohat-oled",
+    name: "NanoHatOLED",
     products: [
         .library(
-            name: "nanohat-oled",
-            targets: ["nanohat-oled"]),
+            name: "NanoHatOLED",
+            targets: ["NanoHatOLED"]),
     ],
     dependencies: [
         .package(url: "https://github.com/novi/i2c-swift.git", from: "0.1.2"),
     ],
     targets: [
         .target(
-            name: "nanohat-oled",
+            name: "NanoHatOLED",
             dependencies: ["I2C"]),
     ]
 )

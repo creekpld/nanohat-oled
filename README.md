@@ -29,7 +29,7 @@ let package = Package(
     targets: [
         .target(
             name: "YourApp",
-            dependencies: ["nanohat-oled"],
+            dependencies: ["NanoHatOLED"],
             path: "Sources"),
     ]
 )
@@ -39,7 +39,7 @@ let package = Package(
 
 
 ``` swift
-import nanohat-oled
+import NanoHatOLED
 
 let oled = OLED()
 
