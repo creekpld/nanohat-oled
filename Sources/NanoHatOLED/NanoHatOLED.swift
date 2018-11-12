@@ -8,7 +8,7 @@ public enum AddressingMode{
     case PAGE_MODE
 }
 
-public class OLED {
+open class OLED {
 
     let device: I2CBusDevice?
     var address = 0x3c
