@@ -14,32 +14,32 @@ open class OLED {
     var address = 0x3c
     public var addressingMode: AddressingMode = .NONE
 
-    var OLED_Width			       = 128
-    var OLED_Height		           = 64
-    var OLED_Max_X                 = 128-1
-    var OLED_Max_Y                 = 64-1
+    public var OLED_Width			       = 128
+    public var OLED_Height		           = 64
+    public var OLED_Max_X                 = 128-1
+    public var OLED_Max_Y                 = 64-1
                                                      
-    var OLED_Address               = UInt8(0x3d)
-    var OLED_Command_Mode          = UInt8(0x00)
-    var OLED_Data_Mode             = UInt8(0x40)
-    var OLED_Display_Off_Cmd       = UInt8(0xAE)
-    var OLED_Display_On_Cmd        = UInt8(0xAF)
-    var OLED_Normal_Display_Cmd    = UInt8(0xA6)
-    var OLED_Inverse_Display_Cmd   = UInt8(0xA7)
-    var OLED_Activate_Scroll_Cmd   = UInt8(0x2F)
-    var OLED_Dectivate_Scroll_Cmd  = UInt8(0x2E)
-    var OLED_Set_Brightness_Cmd    = UInt8(0x81)
+    public var OLED_Address               = UInt8(0x3d)
+    public var OLED_Command_Mode          = UInt8(0x00)
+    public var OLED_Data_Mode             = UInt8(0x40)
+    public var OLED_Display_Off_Cmd       = UInt8(0xAE)
+    public var OLED_Display_On_Cmd        = UInt8(0xAF)
+    public var OLED_Normal_Display_Cmd    = UInt8(0xA6)
+    public var OLED_Inverse_Display_Cmd   = UInt8(0xA7)
+    public var OLED_Activate_Scroll_Cmd   = UInt8(0x2F)
+    public var OLED_Dectivate_Scroll_Cmd  = UInt8(0x2E)
+    public var OLED_Set_Brightness_Cmd    = UInt8(0x81)
 
-    var Scroll_Left                = UInt8(0x00)
-    var Scroll_Right               = UInt8(0x01)
-    var Scroll_2Frames             = UInt8(0x7)
-    var Scroll_3Frames             = UInt8(0x4)
-    var Scroll_4Frames             = UInt8(0x5)
-    var Scroll_5Frames             = UInt8(0x0)
-    var Scroll_25Frames            = UInt8(0x6)
-    var Scroll_64Frames            = UInt8(0x1)
-    var Scroll_128Frames           = UInt8(0x2)
-    var Scroll_256Frames           = UInt8(0x3)
+    public var Scroll_Left                = UInt8(0x00)
+    public var Scroll_Right               = UInt8(0x01)
+    public var Scroll_2Frames             = UInt8(0x7)
+    public var Scroll_3Frames             = UInt8(0x4)
+    public var Scroll_4Frames             = UInt8(0x5)
+    public var Scroll_5Frames             = UInt8(0x0)
+    public var Scroll_25Frames            = UInt8(0x6)
+    public var Scroll_64Frames            = UInt8(0x1)
+    public var Scroll_128Frames           = UInt8(0x2)
+    public var Scroll_256Frames           = UInt8(0x3)
 
     
     public init(_ bus: Int = 0, _ address: Int = 0x3c){
