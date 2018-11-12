@@ -48,40 +48,39 @@ public class OLED {
     }
 
     public func setup(_ mode: AddressingMode = .HORIZONTAL_MODE){
-        oled.sendCommand(0xAE) // display OFF
-        oled.sendCommand(0x00) // set lower column address
-        oled.sendCommand(0x10) // set higher column address
-        oled.sendCommand(0x40) // set display start line
-        oled.sendCommand(0xB0) // set page address
-        oled.sendCommand(0x81) // contrast control
-        oled.sendCommand(0xCF) // 0~255
-        oled.sendCommand(0xA1) // set segment remap
-        oled.sendCommand(0xA6) // normal / reverse
-        oled.sendCommand(0xA8) // multiplex ratio
-        oled.sendCommand(0x3F) // duty = 1/64
-        oled.sendCommand(0xC8) // Com scan direction
-        oled.sendCommand(0xD3) // set display offset
-        oled.sendCommand(0x00) //
-        oled.sendCommand(0xD5) // set osc division
-        oled.sendCommand(0x80) //
-        oled.sendCommand(0xD9) // set pre-charge period
-        oled.sendCommand(0xF1) //
-        oled.sendCommand(0xDA) // set COM pins
-        oled.sendCommand(0x12) //
-        oled.sendCommand(0xDB) // set vcomh
-        oled.sendCommand(0x40) //
-        oled.sendCommand(0x8D) // set charge pump enable
-        oled.sendCommand(0x14) //
-        oled.sendCommand(0xAF) // display ON
-
-        oled.sendCommand(oled.OLED_Normal_Display_Cmd)
+        sendCommand(0xAE) // display OFF
+        sendCommand(0x00) // set lower column address
+        sendCommand(0x10) // set higher column address
+        sendCommand(0x40) // set display start line
+        sendCommand(0xB0) // set page address
+        sendCommand(0x81) // contrast control
+        sendCommand(0xCF) // 0~255
+        sendCommand(0xA1) // set segment remap
+        sendCommand(0xA6) // normal / reverse
+        sendCommand(0xA8) // multiplex ratio
+        sendCommand(0x3F) // duty = 1/64
+        sendCommand(0xC8) // Com scan direction
+        sendCommand(0xD3) // set display offset
+        sendCommand(0x00) //
+        sendCommand(0xD5) // set osc division
+        sendCommand(0x80) //
+        sendCommand(0xD9) // set pre-charge period
+        sendCommand(0xF1) //
+        sendCommand(0xDA) // set COM pins
+        sendCommand(0x12) //
+        sendCommand(0xDB) // set vcomh
+        sendCommand(0x40) //
+        sendCommand(0x8D) // set charge pump enable
+        sendCommand(0x14) //
+        sendCommand(0xAF) // displa
+        sendCommand(OLED_Normal_Display_Cmd)
         switch mode {
         case .HORIZONTAL_MODE:
-            oled.setHorizontalMode()
+            setHorizontalMode()
         case .PAGE_MODE:
-            oled.setPageMode()
+            setPageMode()
         default:
-            println("mode \(mode) not recognized")
+            print("mode \(mode) not recognized")
         }
     }
     
