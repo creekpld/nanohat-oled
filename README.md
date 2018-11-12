@@ -14,7 +14,7 @@ supported boards:
 Install it with the Swift Package Manager.
 
 ``` swift
-// swift-tools-version:4.2
+// swift-tools-version:4.0
 
 import PackageDescription
 
