@@ -42,7 +42,7 @@ public class OLED {
     var Scroll_256Frames           = UInt8(0x3)
 
     
-    init(_ bus: Int = 0, _ address: Int = 0x3c){
+    public init(_ bus: Int = 0, _ address: Int = 0x3c){
         self.address = address
         self.device = try? I2CBusDevice(portNumber: UInt8(bus))
     }
