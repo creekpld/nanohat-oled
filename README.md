@@ -41,17 +41,19 @@ let package = Package(
 ``` swift
 import NanoHatOLED
 
-let oled = OLED()
+let oled = OLED() // default bus = 0, address = 0x3c
 
+// initialize display
 oled.setup()
 
-//set Cursor/Text Position
-oled.setTextXY(0,4) 
-
-//clear display
+// clear display
 let arr = [UInt8](repeating: 0x00, count: 1024)
+oled.sendArrayData(arr)
 
-//print Hello, World!
+// set Cursor/Text Position
+oled.setTextXY(0,4)
+
+// print Hello, World!
 let word = "Hello, World!"
 for char in word {
     print("putChar=\(char)")
