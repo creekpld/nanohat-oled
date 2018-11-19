@@ -1,11 +1,18 @@
 // NanoHatOLED.swift
 import Foundation
 import I2C
+import PNG
 
 public enum AddressingMode{
     case NONE
     case HORIZONTAL_MODE
     case PAGE_MODE
+}
+
+struct ImageData {
+    let data: [UInt8]
+    let width: Int
+    let height: Int
 }
 
 open class OLED {
@@ -166,7 +173,6 @@ open class OLED {
     }
 
     public func putChar(_ char: String){
-        
         // Ignore non-printable ASCII characters
         if let c = char.utf8.first, !(Int(c) < 32 || Int(c) > 127) {
             //print("Char=\(Int(c) - 32)")
@@ -175,6 +181,45 @@ open class OLED {
         }else{
             sendArrayData(BasicFont[0])
         }
+    }
+    
+    
+    func putImage(_ path: String, sensitivity: UInt8 = 0){
+        do {
+            // load PNG Image as grayscale data
+            let (pixels, (x: width, y: height)) = try PNG.v(path: path, of: UInt8.self)
+            // convert to display format
+            let array = packToGDDRAMFormat(ImageData(data: pixels, width: width, height: height), sensitivity: sensitivity)
+            
+            oled.sendArrayData(array)
+            
+        }catch{
+            print("ERROR: Could Not Load Image! at path \(path)")
+            return
+        }
+    }
+    
+    func packToGDDRAMFormat(_ imagedata: ImageData, sensitivity: UInt8 = 0) -> [UInt8] {
+        var array = [UInt8](repeating: 0, count: imagedata.height / 8 * imagedata.width)
+        var row = 0
+        var column = 0
+        for i in 0...imagedata.data.count{
+            if (i > 0 && i % 8 == 0){
+                var byte: UInt8 = 0x00
+                for b:UInt8 in 0..<8 {
+                    let bi = column+(Int(b)*imagedata.width)+(row * (8 * imagedata.width))
+                    let bit : UInt8 = imagedata.data[bi] <= sensitivity ? 0 : 1
+                    byte |= bit<<b
+                }
+                array[row * imagedata.width + column] = byte
+                column += 1
+            }
+            if (i > 0 && i % (imagedata.height / 8 * imagedata.width) == 0){
+                row += 1
+                column = 0 // reset column
+            }
+        }
+        return array
     }
 
     public let BasicFont: [[UInt8]] = [

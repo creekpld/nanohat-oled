@@ -10,10 +10,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/novi/i2c-swift.git", from: "0.1.2"),
+        .package(url: "https://github.com/kelvin13/png.git", .branch("master")),
     ],
     targets: [
         .target(
             name: "NanoHatOLED",
-            dependencies: ["I2C"]),
+            dependencies: ["I2C", "PNG"]),
     ]
 )
