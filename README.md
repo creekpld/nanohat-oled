@@ -9,6 +9,10 @@ supported boards:
 - NanoPi NEO2
 - NanoPi NEO Plus2
 
+## Basic Font
+
+![Hello OLED](font.png)
+
 ## Installation
 
 Install it with the Swift Package Manager.
@@ -60,6 +64,8 @@ for char in word {
     oled.putChar(char.description)
 }
 ```
+Result:
+![Hello OLED](oled.png)
 
 ## Other Implementations
 
