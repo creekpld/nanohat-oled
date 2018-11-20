@@ -90,7 +90,7 @@ open class OLED {
             print("mode \(mode) not recognized")
         }
         
-        oled.sendArrayData([UInt8](repeating: 0x00, count: 1024)) // Clear Display
+        sendArrayData([UInt8](repeating: 0x00, count: 1024)) // Clear Display
         
         sendCommand(0xAF) // display ON
     }
