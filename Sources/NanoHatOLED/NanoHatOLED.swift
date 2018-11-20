@@ -189,9 +189,10 @@ open class OLED {
             // load PNG Image as grayscale data
             let (pixels, (x: width, y: height)) = try PNG.v(path: path, of: UInt8.self)
             // convert to display format
-            let array = packToGDDRAMFormat(ImageData(data: pixels, width: width, height: height), sensitivity: sensitivity)
+            let array = packToGDDRAMFormat(ImageData(data: pixels, width: width, height: height),
+                                           sensitivity: sensitivity)
             
-            oled.sendArrayData(array)
+            sendArrayData(array)
             
         }catch{
             print("ERROR: Could Not Load Image! at path \(path)")
