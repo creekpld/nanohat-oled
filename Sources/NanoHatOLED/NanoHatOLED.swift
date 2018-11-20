@@ -79,7 +79,7 @@ open class OLED {
         sendCommand(0x40) //
         sendCommand(0x8D) // set charge pump enable
         sendCommand(0x14) //
-        sendCommand(0xAF) // displa
+        
         sendCommand(OLED_Normal_Display_Cmd)
         switch mode {
         case .HORIZONTAL_MODE:
@@ -89,6 +89,10 @@ open class OLED {
         default:
             print("mode \(mode) not recognized")
         }
+        
+        oled.sendArrayData([UInt8](repeating: 0x00, count: 1024)) // Clear Display
+        
+        sendCommand(0xAF) // display ON
     }
     
     
