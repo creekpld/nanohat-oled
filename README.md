@@ -1,3 +1,7 @@
+# This is not the Repo you are looking for! :alien:
+
+New development is taking place in [gitlab.com/pdylong/nanohat-oled](https://gitlab.com/pdylong/nanohat-oled) :ok_hand:.
+
 # NanoHat OLED - Swift4 Version
 
 This is a swift library written for using the NanoHat OLED: http://wiki.friendlyarm.com/wiki/index.php/NanoHat_OLED
